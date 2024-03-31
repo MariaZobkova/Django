@@ -1,0 +1,27 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13
+Not Found: /game_dice
+"GET /game_dice HTTP/1.1" 404 2771
+"GET /game HTTP/1.1" 301 0
+"GET /game/ HTTP/1.1" 200 1
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13
+"GET /hw HTTP/1.1" 301 0
+"GET /hw/ HTTP/1.1" 200 39
+C:\Users\79116\OneDrive\Рабочий стол\Обучение GB\Уроки\Django\myproject\HWapp\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13
+"GET /hw/ HTTP/1.1" 200 165
+C:\Users\79116\OneDrive\Рабочий стол\Обучение GB\Уроки\Django\myproject\HWapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13
+Not Found: /hw/about
+"GET /hw/about HTTP/1.1" 404 3101
+"GET /hw/ HTTP/1.1" 200 165
+C:\Users\79116\OneDrive\Рабочий стол\Обучение GB\Уроки\Django\myproject\HWapp\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13
+"GET /hw/ HTTP/1.1" 200 165
+"GET /hw/about HTTP/1.1" 301 0
+"GET /hw/about/ HTTP/1.1" 200 168
