@@ -35,7 +35,7 @@ def fake_order(request):
     product1 = Product.objects.get(id="1")
     product2 = Product.objects.get(id="2")
     for i in range(1):
-        order = Order(customer=client, total_price=product1.price+product2.price, date_ordered='2024-01-01')
+        order = Order(customer=client, total_price=product1.price+product2.price, date_ordered='2023-01-01')
         order.save()
         order.products.add(product1)
         order.products.add(product2)
@@ -43,12 +43,12 @@ def fake_order(request):
 
     return HttpResponse("Добавлен 1 заказ")
 
-def show_orders(request, period):
+def show_order(request, period):
     global title
     current_datetime = datetime.date.today()
     client = Client.objects.get(id='1')
     if period == 30:
-        title = "За месяц"
+        title = "За Месяц"
         orders = Order.objects.filter(customer=client, date_ordered__month=current_datetime.month)
     elif period == 365:
         title = "За год"

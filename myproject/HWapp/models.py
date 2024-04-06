@@ -43,7 +43,7 @@ class Product(models.Model):
     count = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        return f'name: {self.name}'
+        return f'name: {self.name}, price: {self.price}'
 
 
 class Order(models.Model):
