@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from random import *
+from .models import Coin
 
 
 def index(request):
@@ -8,7 +9,10 @@ def index(request):
 
 
 def eagle_tails(request):
- return HttpResponse(choice(["Орел", "Решка"]))
+ result = choice(["Орел", "Решка"])
+ side = Coin(side=result)
+ side.save()
+ return HttpResponse(str(result))
 
 
 def game_dice(request):
@@ -17,6 +21,14 @@ def game_dice(request):
 
 def game_numbers(request):
  return HttpResponse(str(randint(0, 101)))
+
+
+def coin_values(request):
+ value = Coin.last_values()
+ lst = []
+ for i in value:
+  lst.append(i.side)
+ return HttpResponse(lst)
 
 
 
