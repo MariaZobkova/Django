@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,7 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g#czqrfn#cffpo#rqg=cd5b%$*j)6^vk(71syxbu^v-05lwz%4'
+
+
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 LOGGING = {
     'version': 1,
@@ -47,9 +50,15 @@ LOGGING = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'username.pythonanywhere.com',
+]
 
 # Application definition
 
@@ -101,7 +110,14 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'Myyyyyyshop$default',
+        'USER': 'Myyyyyyshop',
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'HOST': 'Myyyyyyshop.mysql.pythonanywhere-services.com',
+        'OPTIONS': {
+            'init_command': "SET NAMES 'utf8mb4';SETsql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -147,4 +163,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+STATIC_ROOT = BASE_DIR / 'static/'
